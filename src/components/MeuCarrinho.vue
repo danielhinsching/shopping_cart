@@ -1,6 +1,6 @@
 <script setup>
 import {carrinho, atualizaQuantidadeItem, removerItemCarrinho} from '@/_data/carrinho.js'
-import MyButton from '@/components/MyButton.vue';
+import MButton from '@/components/MButton.vue';
 function formatarPreco(preco) {
   return 'R$ ' + preco.toFixed(2).replace('.', ',')
 }
@@ -38,10 +38,7 @@ function formatarPreco(preco) {
           </div>
         </div>
       </div>
-      <m-button/>
-      <m-button/>
-      <m-button/>
-      <m-button/>
+      <m-button />
       <p class="carrinho-total">Total: {{ formatarPreco(carrinho.total) }}</p>
     </div>
   </div>  
