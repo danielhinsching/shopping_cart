@@ -34,8 +34,9 @@ const carrinho = ref({
     }
   }
 
-  function deleteItens(itens){
-    carrinho.itens.value = []
+  function deleteItens(){
+    carrinho.value.itens = [];
+    carrinho.value.total = 0;
   }
 
-  export { carrinho, adicionarAoCarrinho, removerItemCarrinho, atualizaQuantidadeItem }
+  export { carrinho, adicionarAoCarrinho, removerItemCarrinho, atualizaQuantidadeItem, deleteItens}

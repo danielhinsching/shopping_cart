@@ -1,7 +1,3 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import CartView from '../views/AboutView.vue'
-imp
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,7 +15,7 @@ const router = createRouter({
     {
       path: '/favoritos',
       name:'favoritos',
-      component: FavoriteView,
+      component: FavoriteView
     }
   ]
 })
