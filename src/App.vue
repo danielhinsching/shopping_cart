@@ -1,17 +1,13 @@
 <script setup>
-import ListagemLivros from '@/components/ListagemLivros.vue';
-import MeuCarrinho from '@/components/MeuCarrinho.vue';
-import favoritos from './components/favoritos.vue';
-/*import router from './router';*/
+import homeView from './views/homeView.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
   <div class="tudo">
     <h1>Minha livraria</h1>
   <div class="container-geral">
-    <listagem-livros />
-    <meu-carrinho />
-    <favoritos />
+<RouterView/>
   </div>
   </div>
 
