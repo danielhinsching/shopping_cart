@@ -16,7 +16,12 @@ const router = createRouter({
       path: '/favoritos',
       name:'favoritos',
       component: FavoriteView
-    }
+    },{
+      path: '/forms',
+      name: 'formulario',
+      component: formsVIew,
+    },
+
   ]
 })
 

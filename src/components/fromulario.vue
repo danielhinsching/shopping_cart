@@ -5,7 +5,7 @@ const email = ref('')
 const  telefone = ref('')
 const formaDePagamento = ref('')
 const cpf = ref('')
-const endereço = ref('')
+const endereco = ref('')
 const user = ref({
   avatar: null
 })
@@ -29,9 +29,21 @@ const confirmar = ref(false)
       <input type="text" v-model="telefone" minlength="8" maxlength="15" required autocomplete="on">
       <p>forma de pagamento:</p>
       <input type="string" v-model="formaDePagamento">
-      */terminar string, add img, localizar no app.vue/*
+      <p>CPF:</p>
+      <input type="text" v-model="cpf" minlength="8" maxlength="11" required autocomplete="on">
+      <p>endereço:</p>
+      <input type="text" v-model="endereco" minlength="8" maxlength="11" required autocomplete="on">
+      <div v-if="aceitar">formulario aceito</div>
   </form>
 
+  <div v-if="aceitar" id="div">
+<img :src="user.avatar" />
+<p>{{ nome }}</p>
+<p>{{ email }}</p>
+<p>{{ telefone }}</p>
+<p>{{ formaDePagamento}}</p>
+<p>{{ endereço }}</p>
+  </div>
 </template>
 
 <style scoped>
