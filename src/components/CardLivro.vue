@@ -24,7 +24,7 @@ function formatarPreco(preco) {
         </div>
         <div class="card-buttons-livros">
           <MButton @click="adicionarAoCarrinho(props.livro)" texto="Adicionar Carrinho"/>
-          <MButton @click="$router.push({name: 'favoritos'})" texto="Adicionar aos Favoritos"/>
+          <MButton @click="adicionarAoFavorito(props.livro)" texto="Adicionar aos Favoritos"/>
         </div>
       </div>     
 </template>
