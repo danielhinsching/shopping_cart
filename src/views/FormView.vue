@@ -105,6 +105,7 @@ const confirmar = ref(false)
 
 .item-carrinho .info-livro {
   display: flex;
+  justify-content: center;
   margin-bottom: 10px;
 }
 .detalhes-livro {
