@@ -1,33 +1,33 @@
 import { ref } from 'vue'
 import {livros} from './livros.js'
-let fav = ref({
+let favoritos = ref({
   itens: []
 })
   
   function removerItemFavorito(item) {
-    const index = fav.value.itens.findIndex((i) => i.id === item.id)
-    fav.value.total -= item.total
-    fav.value.itens.splice(index, 1)
+    const index = favoritos.value.itens.findIndex((i) => i.id === item.id)
+    favoritos.value.total -= item.total
+    favoritos.value.itens.splice(index, 1)
   }
   
   function adicionarAoFavorito(livro) {
-    const index = fav.value.itens.findIndex((item) => item.id === livro.id)
+    const index = favoritos.value.itens.findIndex((item) => item.id === livro.id)
     if (index === -1) {
-      fav.value.itens.push({
+      favoritos.value.itens.push({
         ...livro,
         quantidade: 1,
         total: livro.price
       })
-      fav.value.total += livro.price
+      favoritos.value.total += livro.price
     } else {
-      fav.value.itens[index].quantidade++
-      fav.value.itens[index].total += livro.price
-      fav.value.total += livro.price
+      favoritos.value.itens[index].quantidade++
+      favoritos.value.itens[index].total += livro.price
+      favoritos.value.total += livro.price
     }
   }
   
   function limparFavorito() {
-    fav.value.itens = [];
+    favoritos.value.itens = [];
   }
   
-  export { fav, adicionarAoFavorito, removerItemFavorito, limparFavorito }
+  export { favoritos, adicionarAoFavorito, removerItemFavorito, limparFavorito }
