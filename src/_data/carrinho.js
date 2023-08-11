@@ -5,6 +5,10 @@ const carrinho = ref({
     itens: [],
     total: 0
   })
+  function atualizarDadosComprador(form) {
+    Object.assign(carrinho.value.dadosComprador, form)
+    carrinho.value.dadosCompradorOK = true
+  }
   
   function atualizaQuantidadeItem(item) {
     carrinho.value.total -= item.total
@@ -39,4 +43,4 @@ const carrinho = ref({
     carrinho.value.total = 0;
   }
 
-  export { carrinho, adicionarAoCarrinho, removerItemCarrinho, atualizaQuantidadeItem, deleteItens}
+  export { carrinho, adicionarAoCarrinho, removerItemCarrinho, atualizaQuantidadeItem, deleteItens, atualizarDadosComprador}

@@ -5,28 +5,10 @@ import router from './router';
 </script>
 
 <template>
-  <aside>
-    <nav class="menu">
-    <router-link to="/" class="livraria" >livraria</router-link>
-    <br>
-     <router-link to="about" class="carrinho">carrinho</router-link>     
-    </nav>
-  </aside>
-<div class="tudo">
-  <h1>Minha livraria</h1>
+<h1 class="titulo">LIVRARIA DO DAN</h1>
   <div class="container-geral">
-    
-    <listagem-livros />
-    <meu-carrinho />
-    <aside>
-    <nav class="menu">
-    <router-link to="/" class="favoritos" >Favoritos</router-link>
-    <br>
-     <router-link to="about" class="about">Sobre</router-link>     
-    </nav>
-  </aside>
+    <RouterView/>
   </div>
-</div>
 </template>
 
 <style scoped>
@@ -38,10 +20,7 @@ import router from './router';
   grid-template-columns: 3fr 1fr;
   
 }
-.tudo{
-  background-color: rgba(0, 162, 255, 0.493);
-  margin: 0px;
-}
+
 
 
 

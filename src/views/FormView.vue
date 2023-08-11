@@ -1,12 +1,47 @@
 <script setup>
+import { ref } from 'vue';
+import MButton from '@/components/MButton.vue';
+import router from '../router';
+import MeuCarrinho from '../components/MeuCarrinho.vue';
 import {carrinho, atualizaQuantidadeItem, removerItemCarrinho, deleteItens} from '@/_data/carrinho.js'
 import MMessage from'@/components/MMessage.vue';
-import MButton from './MButton.vue';
-
+const nome = ref('')
+const email = ref('')
+const telefone = ref('')
+const formaDePagamento = ref('')
+const cpf = ref('')
+const endereço = ref('')
+const user = ref({
+  avatar: null
+})
+function handleFileUpload(e) {
+  const target = e.target
+  if (target && target.files) {
+    const file = target.files[0]
+    user.value.avatar = URL.createObjectURL(file)
+  }
+}
+function validar() {
+  if (ok.value) {
+    return false
+  }
+  if (senha.value === confirmacao.value) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 function formatarPreco(preco) {
   return 'R$ ' + preco.toFixed(2).replace('.', ',')
 }
+function Fim(){
+  alert = "Compra Finalizada"
+}
+
+const confirmar = ref(false)
 </script>
+
 <template>
   <div class="carrinho">
     <h2>Meu carrinho</h2>
@@ -40,12 +75,26 @@ function formatarPreco(preco) {
           </div>
         </div>
       </div>
-      <MButton @click="deleteItens()" texto="Limpar"/>
-      <MButton texto="finalizar carrinho" @click="$router.push({name:'formulario'})"/>
-      <p class="carrinho-total">Total: {{ formatarPreco(carrinho.total) }}</p>
+
     </div>
-  </div>  
+  </div>
+  <form class="info" @submit.prevent="aceitar = !aceitar">
+    <p>Nome:</p>
+    <input type="text" v-model="nome" minlength="3" maxlength="20" placeholder="Nome" required autocomplete="on" />
+    <p>Email:</p>
+    <input type="email" v-model="email" placeholder="Email" required autocomplete="on" />
+    <p>telefone:</p>
+    <input type="text" v-model="telefone" minlength="8" maxlength="15" required autocomplete="on">
+    <p>forma de pagamento:</p>
+    <input type="string" v-model="formaDePagamento">
+    <m-button texto="Voltar" @click="$router.push({ name: 'livraria' })" />
+    <div>
+      <button class="botao" type="submit" @click="Fim">Finalizar</button>
+
+    </div>
+  </form>
 </template>
+
 <style scoped>
 .wrap-carrinho .carrinho-total {
   position: fixed;
@@ -98,4 +147,5 @@ function formatarPreco(preco) {
   width: 30px;
   margin-right: 10px;
 }
+
 </style>
