@@ -1,12 +1,7 @@
 <script setup>
 import {carrinho, atualizaQuantidadeItem, removerItemCarrinho, deleteItens} from '@/_data/carrinho.js'
 import MMessage from'@/components/MMessage.vue';
-<<<<<<< HEAD
 import MButton from './MButton.vue';
-=======
-import Fromulario from './fromulario.vue';
-import MButton from '@/components/MButton.vue';
->>>>>>> 0c3d5c4928f0cbbb6b73dcf7057aa2546ecced67
 
 function formatarPreco(preco) {
   return 'R$ ' + preco.toFixed(2).replace('.', ',')
