@@ -2,7 +2,7 @@
 
 Exemplo para aplicação de conceitos de Vue 3, a serem utilizados como exemplos nas aulas de Desenvolvimento Web II.
 
-## Instalação
+## danielhinsching.surge.sh
 
 ```sh
 npm install
