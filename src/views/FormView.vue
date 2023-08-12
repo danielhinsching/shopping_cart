@@ -77,7 +77,6 @@ const confirmar = ref(false)
     <input type="email" v-model="email" placeholder="Email" required autocomplete="on" />
     <p>telefone:</p>
     <input type="text" v-model.number="telefone" minlength="8" maxlength="15" required autocomplete="on">
-    p
     <p>forma de pagamento:</p>
     <label for="FormaDePagamento">
       <input type="checkbox" v-model="formaDePagamento" value="Crédito" /> Crédito
@@ -127,6 +126,7 @@ const confirmar = ref(false)
 
     </div>
   </form>
+</div>
   <div v-if="aceitar" id="div">
 <img :src="user.avatar" />
 <p>{{ nome }}</p>
