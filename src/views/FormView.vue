@@ -3,14 +3,16 @@ import { ref } from 'vue';
 import MButton from '@/components/MButton.vue';
 import router from '../router';
 import MeuCarrinho from '../components/MeuCarrinho.vue';
-import {carrinho, atualizaQuantidadeItem, removerItemCarrinho, deleteItens} from '@/_data/carrinho.js'
+import {carrinho, atualizaQuantidadeItem, removerItemCarrinho,} from '@/_data/carrinho.js'
 import MMessage from'@/components/MMessage.vue';
 const nome = ref('')
 const email = ref('')
 const telefone = ref('')
-const formaDePagamento = ref('')
+const formaDePagamento = ref([])
 const cpf = ref('')
 const endereço = ref('')
+const cidade = ref('')
+const estado = ref('')
 const user = ref({
   avatar: null
 })
@@ -19,17 +21,6 @@ function handleFileUpload(e) {
   if (target && target.files) {
     const file = target.files[0]
     user.value.avatar = URL.createObjectURL(file)
-  }
-}
-function validar() {
-  if (ok.value) {
-    return false
-  }
-  if (senha.value === confirmacao.value) {
-    return true;
-  }
-  else {
-    return false;
   }
 }
 function formatarPreco(preco) {
@@ -43,6 +34,7 @@ const confirmar = ref(false)
 </script>
 
 <template>
+  <div class="geral">
   <div class="carrinho">
     <h2>Meu carrinho</h2>
     <div class="wrap-carrinho">
@@ -84,19 +76,77 @@ const confirmar = ref(false)
     <p>Email:</p>
     <input type="email" v-model="email" placeholder="Email" required autocomplete="on" />
     <p>telefone:</p>
-    <input type="text" v-model="telefone" minlength="8" maxlength="15" required autocomplete="on">
+    <input type="text" v-model.number="telefone" minlength="8" maxlength="15" required autocomplete="on">
+    p
     <p>forma de pagamento:</p>
-    <input type="string" v-model="formaDePagamento">
+    <label for="FormaDePagamento">
+      <input type="checkbox" v-model="formaDePagamento" value="Crédito" /> Crédito
+      <input type="checkbox" v-model="formaDePagamento" value="Débito" /> Débito
+      <input type="checkbox" v-model="formaDePagamento" value="Pix" /> Pix
+
+    
+    
+    </label>
+    <p>Endereço:</p>
+      <input type="text" v-model="endereço" placeholder="Endereço" required autocomplete="on">
+      <P>Cidade:</P>
+      <input type="string" v-model="cidade" placeholder="Cidade" required autocomplete="on">
+      <p>Estado:</p>
+      <select type="string" v-model="estado" required>
+        <option>AC</option>
+        <option>AL</option>
+        <option>AP</option>
+        <option>AM</option>
+        <option>BA</option>
+        <option>CE</option>
+        <option>DF</option>
+        <option>ES</option>
+        <option>GO</option>
+        <option>MA</option>
+        <option>MT</option>
+        <option>MS</option>
+        <option>MG</option>
+        <option>PA</option>
+        <option>PB</option>
+        <option>PR</option>
+        <option>PE</option>
+        <option>PI</option>
+        <option>RJ</option>
+        <option>RN</option>
+        <option>RS</option>
+        <option>RO</option>
+        <option>RR</option>
+        <option>SC</option>
+        <option>SP</option>
+        <option>SE</option>
+        <option>TO</option>
+      </select>
     <m-button texto="Voltar" @click="$router.push({ name: 'livraria' })" />
     <div>
       <button class="botao" type="submit" @click="Fim">Finalizar</button>
 
     </div>
   </form>
+  <div v-if="aceitar" id="div">
+<img :src="user.avatar" />
+<p>{{ nome }}</p>
+<p>{{ email }}</p>
+<p>{{ telefone }}</p>
+<p>{{ data }}</p>
+<p>{{endereço }}</p>
+<p>{{ cidade }}</p>
+<p>{{ estado }}</p>
+</div>
 </template>
 
 <style scoped>
-.wrap-carrinho .carrinho-total {
+.geral{
+align-items: center;
+background-color:  rgb(235, 160, 63);
+
+
+}
+.wrap-carrinho .carrinho-total{
   position: fixed;
   bottom: 3%;
   font-size: 1.5rem;
@@ -106,7 +156,7 @@ const confirmar = ref(false)
 .item-carrinho .info-livro {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
 }
 .detalhes-livro {
   display: flex;
@@ -118,7 +168,7 @@ const confirmar = ref(false)
 }
 .detalhes-livro div {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 }
 

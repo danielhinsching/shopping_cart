@@ -54,6 +54,7 @@ function formatarPreco(preco) {
   bottom: 3%;
   font-size: 1.5rem;
   font-weight: bold;
+  
 }
 
 .item-carrinho .info-livro {

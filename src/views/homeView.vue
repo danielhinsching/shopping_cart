@@ -8,3 +8,6 @@ import MeuCarrinho from '@/components/MeuCarrinho.vue'
       <listagem-livros/>
       <MeuCarrinho/>
 </template>
+<style scoped>
+
+</style>

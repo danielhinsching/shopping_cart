@@ -62,13 +62,5 @@ function formatarPreco(preco) {
   font-weight: bold;
   margin-bottom: 5px;
 }
-.addCarrinho{
-  background-color: brown;
-    color: wheat;
-    font-size: 1.1rem;
-    border: 1px solid wheat;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
+
 </style>
